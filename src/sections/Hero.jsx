@@ -7,6 +7,10 @@ import Target from "../components/Target";
 import { useMediaQuery } from "react-responsive";
 import { calculateSizes } from "../constants/index.js";
 import ReactLogo from "../components/ReactLogo.jsx";
+import Cube from "../components/Cube.jsx";
+import Rings from "../components/Ring.jsx";
+import HeroCamera from "../components/HeroCamera.jsx";
+import Button from "../components/Button.jsx";
 
 const Hero = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
@@ -16,36 +20,46 @@ const Hero = () => {
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
   return (
     <section className="min-h-screen w-full flex flex-col relative">
-      <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3 text-center">
-        <p className="sm:text-3xl text-2xl font-thin text-white text-center font-general-sans">
-          {" "}
-          Hello there! <br />{" "}
-          <span className="font-medium"> I am Faustino </span>
-          <span className="waving-hand">🌠</span>
+      <div className="w-fit mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
+        <p className="sm:text-2xl text-xl font-semibold text-white text-left font-general-sans mx-auto">
+          <span className="waving-hand">👋 </span> I'm Faustino
         </p>
-        <p className="text-gray_gradient hero-tag text-xl">
+        <p className="underline mt-2 font-regular text-gray_gradient hero-tag sm:text-3xl text-2xl w-fit mx-auto rounded-xl p-2">
           {" "}
-          Building & Developing some products... <br />{" "}
-          <b> Always learning. </b>
+          a fullstack software developer from argentina
         </p>
       </div>
-      <div className="w-full h-full absolute inset-0">
-        <Canvas className="w-full h-full pt-10">
+      <div className="w-full h-full absolute pt-32">
+        <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-            <HackerRoom
-              scale={0.05}
-              position={[0, 0, 0]}
-              rotation={[0.2, -Math.PI, 0]}
-            />
+            <HeroCamera isMobile={isMobile}>
+              <HackerRoom
+                scale={0.05}
+                position={[0, 0, 0]}
+                rotation={[0.2, -Math.PI, 0]}
+              />
+            </HeroCamera>
             <group>
               <Target position={sizes.targetPosition} />
               <ReactLogo position={sizes.reactLogoPosition} />
+              <Cube position={sizes.cubePosition} />
+              <Rings position={sizes.ringPosition} />
             </group>
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} />
           </Suspense>
         </Canvas>
+      </div>
+
+      <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
+        <a href="#contact" className="w-fit">
+          <Button
+            name="Let's work together"
+            isBeam
+            containerClass="sm:w-fit w-full sm:min-w-96"
+          />
+        </a>
       </div>
     </section>
   );
