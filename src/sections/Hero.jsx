@@ -11,6 +11,7 @@ import Cube from "../components/Cube.jsx";
 import Rings from "../components/Ring.jsx";
 import HeroCamera from "../components/HeroCamera.jsx";
 import Button from "../components/Button.jsx";
+import Bow from "../components/AvatarWaveAnimation.jsx";
 
 const Hero = () => {
   const isSmall = useMediaQuery({ maxWidth: 440 });
@@ -46,8 +47,11 @@ const Hero = () => {
               <Cube position={sizes.cubePosition} />
               <Rings position={sizes.ringPosition} />
             </group>
+
+            <Bow position={[-4, 0, 0]} scale={1.8} />
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} />
+            {/* <OrbitControls /> */}
           </Suspense>
         </Canvas>
       </div>
