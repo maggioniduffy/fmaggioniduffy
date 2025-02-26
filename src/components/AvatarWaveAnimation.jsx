@@ -45,8 +45,8 @@ const FbxModel = ({ url, ...props }) => {
 export default function Bow(props) {
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[2, 2, 2]} intensity={1} />
+      {/* <ambientLight intensity={0.5} />
+      <directionalLight position={[2, 2, 2]} intensity={1} /> */}
       <FbxModel url="/models/animations/bow.fbx" {...props} />
       {/* <OrbitControls /> */}
     </>
