@@ -20,7 +20,7 @@ const Remote = () => {
         <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
           <Globe
             height={326}
-            weight={326}
+            width={326}
             backgroundColor="rgba(0,0,0,0)"
             backgroundImageOpacity={0.5}
             showAtmosphere

@@ -30,13 +30,13 @@ const Hero = () => {
           a fullstack software developer from argentina
         </p>
       </div>
-      <div className="w-full h-full absolute pt-32">
+      <div className="w-full h-full absolute pt-40">
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
             <HeroCamera isMobile={isMobile}>
               <HackerRoom
-                scale={0.05}
+                scale={isSmall || isMobile || isTablet ? 0.05 : 0.075}
                 position={[0, 0, 0]}
                 rotation={[0.2, -Math.PI, 0]}
               />
@@ -48,7 +48,7 @@ const Hero = () => {
               <Rings position={sizes.ringPosition} />
             </group>
 
-            <Bow position={[-4, 0, 0]} scale={1.8} />
+            <Bow position={[-4, -3, 10]} scale={1.8} />
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} />
             {/* <OrbitControls /> */}
@@ -57,7 +57,7 @@ const Hero = () => {
       </div>
 
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
-        <a href="#contact" className="w-fit">
+        <a href="#about" className="w-fit">
           <Button
             name="Let's work together"
             isBeam
