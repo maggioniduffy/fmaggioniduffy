@@ -47,11 +47,13 @@ const Remote = () => {
             {"Working remotely across most timezones ;)"}
           </p>
           <p className="grid-subtext">Based on Argentina.</p>
-          <Button
-            isBeam={true}
-            name="Contact me"
-            containerClass="w-full mt-10"
-          />
+          <a href="#contact">
+            <Button
+              isBeam={true}
+              name="Contact me"
+              containerClass="w-full mt-10"
+            />
+          </a>
         </div>
       </div>
     </div>
