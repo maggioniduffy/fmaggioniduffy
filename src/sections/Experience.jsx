@@ -1,10 +1,13 @@
 import { Canvas } from "@react-three/fiber";
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { workExperiences } from "../constants";
 import { OrbitControls } from "@react-three/drei";
 import CanvasLoader from "../components/CanvasLoader";
 import Avatar from "../components/Avatar";
+
 const Experience = () => {
+  const [animationName, setAnimationName] = useState("idle");
+
   return (
     <section id="Experience" className="c-space my-20">
       <div className="w-full text-white-600">
@@ -18,7 +21,11 @@ const Experience = () => {
               <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
 
               <Suspense fallback={<CanvasLoader />}>
-                <Avatar position-y={-3} scale={3} />
+                <Avatar
+                  position-y={-3}
+                  scale={3}
+                  animationName={animationName}
+                />
               </Suspense>
             </Canvas>
           </div>
@@ -26,10 +33,22 @@ const Experience = () => {
             <div className="sm:py-10 py-5 sm:px-5 px-2.5">
               {workExperiences.map(
                 ({ name, pos, duration, title, animation, icon, id }) => (
-                  <div key={id} className="work-content_container group">
+                  <div
+                    key={id}
+                    className="work-content_container group"
+                    onClick={() => setAnimationName(animation.toLowerCase())}
+                    onPointerOver={() =>
+                      setAnimationName(animation.toLowerCase())
+                    }
+                    onPointerOut={() => setAnimationName("idle")}
+                  >
                     <div className="flex flex-col h-full justify-start items-center py-2">
                       <div className="work-content_logo">
-                        <img src={icon} alt="logo" className="w-full h-full" />
+                        <img
+                          src={icon}
+                          alt="logo"
+                          className="w-fit h-full m-auto"
+                        />
                       </div>
 
                       <div className="work-content_bar" />

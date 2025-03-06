@@ -10,14 +10,41 @@ const Avatar = ({ animationName = "idle", ...props }) => {
   const { nodes, materials } = useGLTF("/models/avatar.glb");
 
   const { animations: idleAnimation } = useFBX("/models/animations/idle.fbx");
+  const { animations: saluteAnimation } = useFBX(
+    "/models/animations/salute.fbx"
+  );
+  const { animations: clappingAnimation } = useFBX(
+    "/models/animations/clapping.fbx"
+  );
+  const { animations: victoryAnimation } = useFBX(
+    "/models/animations/victory.fbx"
+  );
+
   idleAnimation[0].name = "idle";
-  const { actions } = useAnimations(idleAnimation[0], group);
+  saluteAnimation[0].name = "salute";
+  clappingAnimation[0].name = "clapping";
+  victoryAnimation[0].name = "victory";
+
+  const { actions } = useAnimations(
+    [
+      idleAnimation[0],
+      saluteAnimation[0],
+      clappingAnimation[0],
+      victoryAnimation[0],
+    ],
+    group
+  );
 
   useEffect(() => {
     actions[animationName].reset().fadeIn(0.5).play();
+    console.log("animation");
+    console.log(animationName);
 
-    return () => actions[animationName].fadeOut(0.5);
+    return () => {
+      actions[animationName]?.fadeOut(0.5);
+    };
   }, [animationName]);
+
   return (
     <group {...props} dispose={null} ref={group}>
       <primitive object={nodes.Hips} />

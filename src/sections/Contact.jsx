@@ -65,7 +65,11 @@ const Contact = () => {
         )}
         <div className="contact-container">
           <h3 className="head-text"> Let's talk</h3>{" "}
-          <p className="text-lg text-white-600 mt-3">.... bla clad </p>
+          <p className="text-lg text-white-600 mt-3">
+            {" "}
+            Tell me about your project and I'm sure we can create something
+            awesome. <br /> Any doubts or question is welcome too!{" "}
+          </p>
           <form
             ref={formRef}
             onSubmit={handleSubmit}

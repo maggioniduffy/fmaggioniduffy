@@ -6,7 +6,7 @@ const Stack = () => {
       <div className="grid-container">
         <img
           src="/assets/grid2.png"
-          className="w-full sm:w-[276px] h-fit object-contain"
+          className="w-full sm:w-[276px] h-fit object-contain m-auto"
         />
         <div>
           <p className="grid-headtext"> Tech Stack </p>{" "}
