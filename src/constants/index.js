@@ -175,6 +175,39 @@ export const myProjects = [
       },
     ],
   },
+  {
+    title: "Voice2Text",
+    desc: "A serverless app that hear what you said, translate it, and speak it out to you.",
+    subdesc: "Made with Next.js 15, Tailwind and Google Cloud Translate API",
+    href: "https://voice-taupe-psi.vercel.app/",
+    texture: "/textures/project/voice.mp4",
+    logo: "/assets/voice.png",
+    logoStyle: {
+      backgroundColor: "#60f5a1",
+      background:
+        "linear-gradient(0deg,rgba(58, 58, 58, 0.31),rgba(102, 243, 224, 0.31)), linear-gradient(180deg, rgba(34, 77, 158, 0.9) 0%, rgba(197, 255, 228, 0.8) 100%)",
+      border: "0.2px solid rgb(19, 20, 20)",
+      boxShadow: "0px 0px 60px 0px rgba(16, 163, 163, 0.57)",
+    },
+    spotlight: "/assets/spotlight3.png",
+    tags: [
+      {
+        id: 1,
+        name: "Next.js",
+        path: "/assets/nextjs.svg",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "assets/tailwindcss.png",
+      },
+      {
+        id: 3,
+        name: "Google Cloud",
+        path: "/assets/gcloud.svg",
+      },
+    ],
+  },
 ];
 
 export const calculateSizes = (isSmall, isMobile, isTablet) => {
