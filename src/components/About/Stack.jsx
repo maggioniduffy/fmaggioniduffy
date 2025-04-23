@@ -10,7 +10,10 @@ const Stack = () => {
         />
         <div>
           <p className="grid-headtext"> Tech Stack </p>{" "}
-          <p className="grid-subtext"> Next.js, bla bla bla </p>{" "}
+          <p className="grid-subtext">
+            {" "}
+            Typescript lover 🤍, but not exclusive.{" "}
+          </p>{" "}
         </div>
       </div>
     </div>
